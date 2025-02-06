@@ -1,0 +1,1378 @@
+@import url('https://fonts.googleapis.com/css2?family=Anticva:wght@700&family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    font-family: 'Anticva', serif;
+    color: #ffffff;
+    height: 100%;
+    overflow-x: hidden;
+    position: relative; /* Необходимо для позиционирования ::before */
+}
+
+/* Фоновый рисунок */
+body::before {
+    content: ''; /* Создаем пустой элемент */
+    position: fixed; /* Фиксируем изображение относительно окна браузера */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('phone.png') no-repeat center center; /* Фоновое изображение */
+    background-size: cover; /* Растягиваем изображение */
+    opacity: 0.1; /* Прозрачность изображения (меньше значения — больше прозрачность) */
+    z-index: -1; /* Отправляем изображение за контент */
+}
+
+/* Основной цвет фона */
+body {
+    background-color: #171312; /* Цвет фона остается основным */
+    
+}
+
+/* Граница внизу hero-section */
+.hero-border {
+    position: absolute;
+    width: 100%; /* Ширина границы */
+    height: 3px; /* Толщина границы */
+    background-color: #e6a94c; /* Золотистый цвет */
+    margin-top: -15px; /* Смещаем略微 вверх для плавного перехода */
+    padding-bottom: 15px;
+    border-radius: 20px;
+    z-index: 2;
+    opacity: 1;
+  
+}
+
+
+/* Навигация */
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px;
+    background-color: #0b090b;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 24px;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-links ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #e6a94c;
+}
+
+/* Стили для кнопки переключения меню */
+.menu-toggle {
+    display: none; /* Скрываем на десктопах */
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Адаптивность для мобильных устройств */
+/* Адаптивность для мобильных устройств */
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+    /* Показываем кнопку переключения меню */
+    .menu-toggle {
+        display: block; /* Показываем на мобильных */
+        position: absolute;
+        right: 20px; /* Отступ справа */
+        top: 20px; /* Отступ сверху */
+        z-index: 1001; /* Перекрываем другие элементы */
+        background-color: transparent; /* Прозрачный фон */
+        border: none; /* Убираем границу */
+        cursor: pointer; /* Изменяем курсор */
+    }
+
+    /* Стили для навигации */
+    .nav-links {
+        display: none; /* Скрываем меню по умолчанию */
+        flex-direction: column; /* Элементы в столбец */
+        position: fixed; /* Фиксированное положение */
+        top: 0;
+        left: 0;
+        width: 100%; /* Занимает всю ширину экрана */
+        height: 100vh; /* Высота равна высоте viewport */
+        background-color: #171312; /* Темный фон без прозрачности */
+        z-index: 1000; /* Перекрываем содержимое страницы */
+        padding: 60px 20px; /* Добавляем отступы */
+        gap: 20px; /* Промежуток между элементами */
+        overflow-y: auto; /* Добавляем прокрутку, если меню слишком длинное */
+    }
+
+    /* Активное меню */
+    .nav-links.active {
+        display: flex; /* Показываем меню */
+        flex-direction: column; /* Вертикальное расположение */
+        justify-content: flex-start; /* Размещаем элементы сверху */
+    }
+
+    /* Стили для ссылок в меню */
+    .nav-links ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column; /* Вертикальное расположение */
+        gap: 20px; /* Отступ между пунктами */
+    }
+
+    .nav-links a {
+        color: #ffffff; /* Белый цвет текста */
+        text-decoration: none; /* Убираем подчеркивание */
+        font-size: 1.5rem; /* Размер шрифта */
+        transition: color 0.3s ease; /* Плавные переходы */
+    }
+
+    .nav-links a:hover {
+        color: #e6a94c; /* Золотой цвет при наведении */
+    }
+
+    /* Стили для текста "Телефон" и кнопки "Позвоните нам" */
+    .nav-links p,
+    .nav-links button {
+        color: #ffffff; /* Белый цвет текста */
+        font-size: 1.2rem; /* Размер шрифта */
+        margin: 0; /* Убираем внешние отступы */
+    }
+
+    .nav-links button {
+        border: 2px solid #e6a94c; /* Золотой контур */
+        background-color: transparent; /* Прозрачный фон */
+        padding: 10px 20px; /* Внутренние отступы */
+        border-radius: 30px; /* Скругленные углы */
+        cursor: pointer; /* Изменяем курсор */
+        transition: all 0.3s ease; /* Плавные переходы */
+    }
+
+    .nav-links button:hover {
+        background-color: rgba(230, 169, 76, 0.1); /* Легкий фон при наведении */
+        transform: scale(1.05); /* Небольшое увеличение */
+        box-shadow: 0px 0px 10px rgba(230, 169, 76, 0.5); /* Тень */
+    }
+}
+/* Первый экран */
+.hero-section {
+    position: relative; /* Для позиционирования элементов */
+    height: 100vh; /* Высота равна высоте viewport */
+    display: flex;
+    align-items: center; /* Центрирование содержимого по вертикали */
+    justify-content: center; /* Центрирование содержимого по горизонтали */
+    overflow: hidden; /* Убираем лишние отступы */
+}
+
+/* Контейнер hero-content */
+.hero-content {
+    display: flex;
+    flex-direction: row; /* По умолчанию элементы в строку */
+    align-items: center; /* Вертикальное центрирование */
+    justify-content: space-between; /* Распределение элементов */
+    max-width: 1200px; /* Максимальная ширина контейнера */
+    margin: 0 auto; /* Центрируем контейнер */
+    padding: 40px; /* Внутренние отступы */
+}
+
+/* Текстовая часть */
+.hero-text {
+    text-align: left; /* Текст слева */
+    max-width: 50%; /* Ограничиваем ширину текста */
+}
+
+.hero-text h1 {
+    font-size: clamp(2rem, 5vw, 3rem); /* Адаптивный размер заголовка */
+    color: #e6a94c; /* Золотой цвет */
+    margin-bottom: 10px; /* Отступ под заголовком */
+}
+
+.hero-text p {
+    font-size: 1rem; /* Размер шрифта */
+    color: #ffffff; /* Белый цвет текста */
+    margin-bottom: 20px; /* Отступ под текстом */
+}
+
+.hero-image {
+    width: 50%; /* Ширина изображения */
+    max-width: 600px; /* Максимальная ширина */
+    padding-top: 175px; /* Отступ сверху для компенсации высоты навигации */
+    padding-bottom: 0px; /* Отступ снизу */
+}
+
+.hero-image img {
+    width: 100%; /* Изображение занимает всю доступную ширину */
+    height: auto; /* Сохраняем пропорции */
+    object-fit: contain; /* Обрезаем при необходимости */
+}
+
+
+
+/* Адаптация для разрешения от 1025px */
+@media (min-width: 1025px) {
+    .hero-image img {
+        width: 120%; /* Увеличиваем ширину изображения */
+        height: calc(100vh - 70px); /* Высота изображения с учетом высоты навигации */
+        transform: translateX(-10%); /* Сдвиг изображения на 10% влево */
+    }
+}
+
+/* Адаптация для разрешения от 1400px */
+@media (min-width: 1400px) {
+    .hero-image img {
+        width: 130%; /* Увеличиваем ширину изображения */
+        height: calc(100vh - 70px); /* Высота изображения с учетом высоты навигации */
+        transform: translateX(-20%); /* Сдвиг изображения на 20% влево */
+    }
+}
+
+/* Адаптация для разрешения от 1920px */
+@media (min-width: 1920px) {
+    .hero-image img {
+        width: 150%; /* Увеличиваем ширину изображения */
+        height: calc(100vh - 70px); /* Высота изображения с учетом высоты навигации */
+        transform: translateX(-50%); /* Сдвиг изображения на 50% влево */
+    }
+}
+
+/* Адаптация для мобильных устройств */
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+    .hero-section {
+        position: relative; /* Для позиционирования дочерних элементов */
+        height: auto; /* Высота по содержимому */
+    }
+
+    .hero-content {
+        flex-direction: column-reverse;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+        position: relative; /* Для позиционирования текста и кнопки */
+    }
+
+    .hero-text {
+        max-width: 100%;
+        margin-bottom: 0; /* Убираем отступ */
+        position: absolute; /* Абсолютное позиционирование */
+        top: 70%; /* Позиционируем текст ниже */
+        left: 50%; /* Позиционируем по горизонтали */
+        transform: translate(-50%, -50%); /* Центрируем */
+        z-index: 2; /* Текст поверх изображения */
+        color: #fff; /* Цвет текста для лучшей читаемости */
+    }
+
+    .hero-text h1 {
+        font-size: clamp(1.5rem, 8vw, 2rem);
+        color: #e08f14; /* Золотой цвет */
+        margin-bottom: 10px;
+        text-shadow: 
+            -1px -1px 0 #ffffff, /* Тень вверх и влево */
+            1px -1px 0 #ffffff,  /* Тень вверх и вправо */
+            -1px 1px 0 #ffffff,  /* Тень вниз и влево */
+            1px 1px 0 #ffffff;   /* Тень вниз и вправо */
+    }
+    
+    .hero-text p {
+        
+        font-size: 0.9rem;
+        color: #e08f14; /* Золотой цвет */
+        margin-bottom: 20px;
+        text-shadow: 
+            -1px -1px 0 #ffffff, /* Тень вверх и влево */
+            1px -1px 0 #ffffff,  /* Тень вверх и вправо */
+            -1px 1px 0 #ffffff,  /* Тень вниз и влево */
+            1px 1px 0 #ffffff;   /* Тень вниз и вправо */
+    }
+
+    .cta-button {
+        padding: 10px 20px;
+        font-size: 0.8rem;
+        background-color: #e6a94c; /* Цвет кнопки */
+        color: #fff; /* Цвет текста кнопки */
+        border: none;
+        cursor: pointer;
+        z-index: 2; /* Кнопка поверх изображения */
+    }
+
+    .hero-image {
+        width: 100%;
+        max-width: none;
+        position: relative; /* Для позиционирования */
+        z-index: 1; /* Изображение под текстом */
+        margin-top: 0; /* Убираем отступ */
+    }
+
+    .hero-image img {
+        width: 100%;
+        height: 70vh; /* Увеличиваем высоту изображения */
+        object-fit:contain; /* Обрезаем изображение */
+        display: block;
+    }
+}
+
+/* Добавляем отступ сверху для контейнера изображения */
+
+
+
+.hero-text {
+    width: 45%;
+    text-align: left;
+}
+
+.hero-text h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: 20px;
+}
+
+.hero-text p {
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    margin-bottom: 30px;
+}
+
+.cta-button {
+    padding: 30px 60px; /* Увеличиваем отступы для кнопки */
+    background-color: #9c1520;
+   
+    font-family: 'Montserrat';
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 20px; /* Увеличиваем размер шрифта */
+    cursor: pointer;
+    transition: all 0.3s ease; /* Плавные переходы для всех свойств */
+}
+
+.cta-button:hover {
+    transform: scale(1.05); /* Увеличение кнопки */
+    box-shadow: 0px 0px 15px rgba(156, 21, 32, 0.7); /* Подсветка краёв */
+    background-color: #801019; /* Изменение цвета фона при наведении */
+}
+
+
+/* Другие блоки */
+.section {
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.section p {
+    font-size: 1.2rem;
+}
+
+/* Адаптация для мобильных устройств */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        background-color: #0b090b;
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-image {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .hero-text {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .hero-content {
+        flex-direction: row;
+    }
+
+    .hero-text {
+        width: 50%;
+    }
+}
+
+
+
+
+/* Футер */
+footer {
+    background-color: #0b090b;
+    padding: 20px;
+    text-align: center;
+    color: #ffffff; /* Белый цвет текста */
+}
+
+footer h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+footer h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #e6a94c; /* Золотой цвет для заголовков */
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+footer ul li {
+    margin-bottom: 8px;
+}
+
+footer ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer ul li a:hover {
+    color: #e6a94c; /* Золотой цвет при наведении */
+}
+
+footer p {
+    margin: 20px 0 0;
+    font-size: 1rem;
+    color: #cccccc; /* Светло-серый цвет для текста */
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-sections {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+    text-align: left;
+}
+
+@media (max-width: 768px) {
+    .footer-sections {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-section {
+        text-align: center;
+    }
+}
+
+
+
+
+/* Общий контейнер услуг */
+.services-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 40px auto;
+    justify-content: center;
+}
+
+/* Стиль каждого блока услуги */
+.service-item {
+    display: flex;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.473);
+    border: 2px solid #e6a94c;
+    padding: 20px;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    flex: 1;
+    min-width: 280px;
+    max-width: calc(50% - 10px);
+    box-sizing: border-box;
+    will-change: transform, box-shadow;
+}
+
+/* Иконка слева */
+.service-item .icon {
+    width: 200px;
+    height: 200px;
+    margin-right: 20px;
+}
+
+.service-item .icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Текстовая часть */
+.service-item .content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #e6a94c;
+}
+
+.service-item .content p {
+    font-size: 1rem;
+    color: #ffffff;
+}
+
+/* Ховер эффект */
+.service-item:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: scale(1.02);
+    box-shadow: 0px 0px 10px rgba(230, 169, 76, 0.5);
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+    .service-item {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+
+    .service-item .icon {
+        margin-bottom: 10px;
+    }
+
+    .service-item .content {
+        text-align: center;
+    }
+}
+
+/* Фикс для больших экранов, чтобы было всегда 2x2 */
+@media (min-width: 769px) {
+    .services-container {
+        width: 100%;
+    }
+
+    .service-item {
+        flex: 0 0 calc(50% - 10px);
+    }
+}
+
+/* Стили для секции маркетплейсов */
+.marketplaces-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 40px auto 0;
+}
+
+/* Первая строка (4 блока) */
+.marketplaces-grid:first-of-type {
+    justify-content: space-between;
+}
+
+/* Стиль для каждого блока */
+.marketplace-item {
+    background-color: rgba(0, 0, 0, 0.473);
+    border: 2px solid #e6a94c;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 180px;
+    min-width: 220px;
+    position: relative;
+    will-change: transform, box-shadow;
+}
+
+/* Стиль для изображений */
+.marketplace-item img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    height: auto;
+    width: auto;
+}
+
+/* Ховер эффект */
+.marketplace-item:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
+    box-shadow: 0px 0px 10px rgba(230, 169, 76, 0.5);
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+    .marketplaces-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .marketplace-item {
+        max-width: calc(50% - 15px);
+        height: 150px;
+        flex: 1 1 calc(50% - 15px);
+    }
+
+    @media (max-width: 480px) {
+        .marketplace-item {
+            max-width: 100%;
+            height: 180px;
+            flex: 1 1 100%;
+        }
+    }
+}
+
+
+
+
+/* Общий контейнер */
+.useful-container {
+    display: flex;
+    flex-direction: column; /* Блоки идут в один столбец */
+    gap: 20px; /* Отступ между блоками */
+    max-width: 1200px; /* Максимальная ширина контейнера */
+    margin: 40px auto; /* Центрируем контейнер */
+}
+
+/* Заголовок секции */
+#кому-полезны h2 {
+    text-align: center; /* Выравниваем заголовок по центру */
+    margin-bottom: 20px; /* Добавляем отступ под заголовком */
+}
+
+/* Стиль каждого блока */
+.useful-item {
+    display: flex;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.473);
+    border: 2px solid #e6a94c;
+    padding: 20px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    width: 100%; /* Блоки занимают всю доступную ширину */
+    box-sizing: border-box; /* Учитываем padding и border в ширине */
+}
+
+/* Иконка слева */
+.useful-item .icon {
+    width: 120px; /* Увеличенные иконки */
+    height: 120px;
+    margin-right: 20px;
+}
+
+.useful-item .icon img {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+}
+
+/* Текстовая часть */
+.useful-item .content {
+    text-align: left; /* Текст выравнивается по левому краю */
+}
+
+.useful-item .content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #e6a94c;
+}
+
+.useful-item .content p {
+    font-size: 1rem;
+    color: #ffffff;
+}
+
+/* Ховер эффект */
+.useful-item:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: scale(1.02);
+    box-shadow: 0px 0px 10px rgba(230, 169, 76, 0.5);
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+    .useful-item {
+        flex-direction: column; /* Меняем направление на вертикальное */
+        text-align: center; /* Центрируем содержимое для маленьких экранов */
+        align-items: center; /* Центрируем иконку и текст */
+    }
+
+    .useful-item .icon {
+        margin-bottom: 10px; /* Добавляем отступ между иконкой и текстом */
+    }
+
+    .useful-item .content {
+        text-align: center; /* На маленьких экранах текст тоже центрируется */
+    }
+}
+
+
+/* Стили для списка */
+.result-list {
+    max-width: 1200px; /* Максимальная ширина контейнера */
+    margin: 40px auto; /* Центрируем контейнер */
+}
+/* Стиль каждого пункта списка */
+.result-item {
+    font-size: 1.2rem; /* Размер шрифта */
+    color: #ffffff; /* Белый текст */
+    margin-bottom: 25px; /* Отступ между пунктами */
+    line-height: 1.8; /* Интервал между строками */
+    text-align: left; /* Выравнивание по левому краю */
+    position: relative; /* Для позиционирования тире */
+    padding: 15px 20px; /* Внутренние отступы для контейнера */
+    background-color: rgba(0, 0, 0, 0.473);
+    border: 2px solid #e6a94c; /* Золотистая обводка */
+    border-radius: 10px; /* Скругленные углы */
+    transition: all 0.3s ease; /* Плавные переходы */
+    
+}
+
+/* Стиль для текста внутри пункта (увеличиваем отступ) */
+
+/* Жирное тире перед текстом */
+.result-item::before {
+    content: "–"; /* Жирное тире */
+    font-weight: bold; /* Жирный шрифт */
+    font-size: 1.8rem; /* Размер тире */
+    position: absolute;
+    left: 20px; /* Отступ тире от левого края */
+    top: 50%; /* Вертикальное центрирование */
+    transform: translateY(-50%); /* Точное центрирование */
+    color: #e6a94c; /* Золотой цвет тире */
+}
+
+/* Стиль для текста внутри пункта (добавляем отступ) */
+.result-item span {
+    display: inline-block; /* Делаем текст блочным элементом */
+    margin-left: 40px; /* Отступ от тире */
+    vertical-align: middle; /* Вертикальное выравнивание */
+}
+
+/* Ховер эффект для пунктов списка */
+.result-item:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* При наведении фон становится светлее */
+    transform: scale(1.02); /* Небольшое увеличение при наведении */
+    box-shadow: 0px 0px 10px rgba(230, 169, 76, 0.5); /* Добавляем тень */
+}
+
+
+
+
+
+
+
+
+/* Контейнер списка фактов */
+.facts-container {
+    max-width: 1200px; /* Максимальная ширина контейнера */
+    margin: 40px auto; /* Центрируем контейнер */
+}
+
+/* Стиль каждого пункта списка */
+.facts-item {
+    font-size: 1.2rem; /* Размер шрифта */
+    color: #ffffff; /* Белый текст */
+    margin-bottom: 25px; /* Отступ между пунктами */
+    line-height: 1.8; /* Интервал между строками */
+    text-align: left; /* Выравнивание по левому краю */
+    position: relative; /* Для позиционирования тире */
+    padding: 15px 20px; /* Внутренние отступы для контейнера */
+    background-color: rgba(0, 0, 0, 0.473);
+    border: 2px solid #e6a94c; /* Золотистая обводка */
+    border-radius: 10px; /* Скругленные углы */
+    transition: all 0.3s ease; /* Плавные переходы */
+}
+
+/* Жирное тире перед текстом */
+.facts-item::before {
+    content: "–"; /* Жирное тире */
+    font-weight: bold; /* Жирный шрифт */
+    font-size: 1.8rem; /* Размер тире */
+    position: absolute;
+    left: 20px; /* Отступ тире от левого края */
+    top: 50%; /* Вертикальное центрирование */
+    transform: translateY(-50%); /* Точное центрирование */
+    color: #e6a94c; /* Золотой цвет тире */
+}
+
+/* Стиль для текста внутри пункта (сдвиг текста правее) */
+.facts-item span {
+    display: inline-block; /* Делаем текст блочным элементом */
+    margin-left: 60px; /* Увеличенный отступ от тире */
+    vertical-align: middle; /* Вертикальное выравнивание */
+}
+
+/* Ховер эффект для пунктов списка */
+.facts-item:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* При наведении фон становится светлее */
+    transform: scale(1.02); /* Небольшое увеличение при наведении */
+    box-shadow: 0px 0px 10px rgba(230, 169, 76, 0.5); /* Добавляем тень */
+}
+
+
+
+
+
+
+/* Общие стили для стрелок */
+/* Общие стили для стрелок */
+.custom-arrow {
+    position: absolute;
+    top: 50%; /* Центрируем вертикально */
+    transform: translateY(-50%);
+    z-index: 10;
+    cursor: pointer;
+    display: block; /* Всегда видимые */
+    font-size: 30px; /* Размер стрелок */
+    color: #e6a94c; /* Золотой цвет */
+    background: rgba(0, 0, 0, 0.5); /* Полупрозрачный фон */
+    border-radius: 50%; /* Круглая форма */
+    width: 40px; /* Размер кнопки */
+    height: 40px;
+    line-height: 40px; /* Центрирование текста */
+    text-align: center; /* Центрирование текста */
+    transition: all 0.3s ease; /* Плавные переходы */
+}
+
+/* Левая стрелка */
+.left-arrow {
+    left: 10px; /* Расположение слева */
+}
+
+/* Правая стрелка */
+.right-arrow {
+    right: 10px; /* Расположение справа */
+}
+
+/* Анимация при наведении */
+.custom-arrow:hover {
+    background: rgba(0, 0, 0, 0.7); /* Темнее при наведении */
+    color: #ffffff; /* Белый цвет при наведении */
+    transform: translateY(-50%) scale(1.2); /* Увеличение размера */
+}
+
+/* Активная стрелка */
+.custom-arrow:active {
+    transform: translateY(-50%) scale(0.9); /* Уменьшение при нажатии */
+}
+
+/* Обертка слайдера */
+.carousel-wrapper {
+    position: relative;
+    max-width: 1200px; /* Максимальная ширина */
+    margin: 0 auto; /* Центрируем */
+    overflow: hidden;
+    border: 2px solid #e6a94c; /* Золотистая обводка */
+    border-radius: 10px; /* Скругленные углы */
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5); /* Тень */
+}
+
+/* Список слайдов */
+.carousel ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+/* Слайды */
+.carousel li {
+    min-width: 100%; /* Каждый слайд занимает всю ширину */
+    position: relative;
+}
+
+/* Изображение */
+.carousel img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+/* Текстовый блок */
+.case-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.5); /* Полупрозрачный фон для текста */
+    padding: 15px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.case-content h3 {
+    font-size: 1.5rem;
+    color: #e6a94c; /* Золотой цвет заголовка */
+    margin: 0 0 5px 0;
+}
+
+.case-content p {
+    font-size: 1rem;
+    color: #ffffff;
+    margin: 0;
+}
+
+/* Анимация слайдов */
+#slide1:checked ~ .carousel ul {
+    transform: translateX(0); /* Первый слайд */
+}
+
+#slide2:checked ~ .carousel ul {
+    transform: translateX(-100%); /* Второй слайд */
+}
+
+#slide3:checked ~ .carousel ul {
+    transform: translateX(-200%); /* Третий слайд */
+}
+
+
+
+
+/* Общий стиль секции */
+#тарифы h2 {
+    text-align: center; /* Заголовок по центру */
+    margin-bottom: 40px; /* Отступ под заголовком */
+    font-size: 2rem; /* Размер шрифта заголовка */
+    color: #ffffff; /* Золотой цвет заголовка */
+}
+
+/* Контейнер тарифов */
+.tariff-container {
+    max-width: 1200px; /* Максимальная ширина контейнера */
+    margin: 0 auto; /* Центрируем контейнер */
+    display: flex;
+    flex-direction: column; /* Для адаптивности */
+    gap: 20px; /* Промежуток между тарифами */
+}
+
+/* Стиль каждого тарифа */
+.tariff-item {
+    display: flex; /* Размещаем элементы рядом */
+    background-color: rgba(0, 0, 0, 0.473);
+    border: 5px solid #e6a94c; /* Золотистая обводка */
+    border-radius: 10px; /* Скругленные углы */
+    padding: 0px; /* Внутренние отступы */
+    box-sizing: border-box; /* Учитываем padding */
+    transition: all 0.3s ease; /* Плавные переходы */
+    position: relative; /* Для позиционирования элементов */
+    min-height: fit-content; /* Высота блока подстраивается под содержимое */
+}
+
+/* Изображение тарифа */
+.tariff-image {
+    flex: 1; /* Изображение занимает левую половину */
+    max-width: 50%; /* Ограничиваем ширину изображения */
+    display: flex; /* Для центрирования изображения */
+    align-items: flex-end; /* Выравниваем изображение по нижнему краю */
+    justify-content: center; /* Центрируем изображение горизонтально */
+    margin-right: 20px; /* Отступ между изображением и текстом */
+    padding-bottom: 0; /* Убираем лишний отступ снизу */
+}
+
+.tariff-image img {
+    width: 80%; /* Уменьшаем размер изображения */
+    height: auto; /* Сохраняем пропорции */
+    object-fit: contain; /* Обрезаем при необходимости */
+    border-radius: 10px; /* Скругленные углы */
+    margin-bottom: 0; /* Убираем отступ снизу у изображения */
+}
+
+/* Текстовая часть тарифа */
+.tariff-content {
+    flex: 1; /* Текст занимает правую половину */
+    max-width: 50%; /* Ограничиваем ширину текста */
+    display: flex; /* Для вертикального расположения элементов */
+    flex-direction: column; /* Вертикальное расположение */
+    justify-content: space-between; /* Распределяем элементы равномерно */
+}
+
+/* Заголовок тарифа */
+.tariff-content h3 {
+    font-size: 1.8rem; /* Размер заголовка */
+    color: #e6a94c; /* Золотой цвет заголовка */
+    margin-bottom: 15px; 
+    margin-top: 30px;/* Отступ под заголовком */
+}
+
+/* Список того, что входит в тариф */
+.tariff-list {
+    list-style: none; /* Убираем маркеры списка */
+    padding: 0; /* Убираем внутренние отступы */
+    margin: 0; /* Убираем внешние отступы */
+}
+
+.tariff-list li {
+    font-size: 1.2rem; /* Размер шрифта пунктов */
+    color: #ffffff; /* Белый цвет текста */
+    margin-bottom: 10px; /* Отступ между пунктами */
+    position: relative; /* Для позиционирования тире */
+    padding-left: 25px; /* Отступ для тире */
+    line-height: 1.8; /* Интервал между строками */
+}
+
+/* Жирное тире перед каждым пунктом */
+.tariff-list li::before {
+    content: "–"; /* Жирное тире */
+    font-weight: bold; /* Жирный шрифт */
+    font-size: 1.5rem; /* Размер тире */
+    position: absolute;
+    left: 0; /* Расположение тире слева */
+    top: 50%; /* Вертикальное центрирование */
+    transform: translateY(-50%); /* Точное центрирование */
+    color: #e6a94c; /* Золотой цвет тире */
+}
+
+/* Блок с ценой и кнопкой */
+.tariff-price {
+    display: flex; /* Размещаем элементы рядом */
+    align-items: center; /* Вертикальное выравнивание */
+    margin-top: 20px; /* Отступ сверху */
+    margin-bottom: 30px;
+}
+
+/* Цена */
+.tariff-price span {
+    font-size: 1.8rem; /* Размер шрифта цены */
+    color: #e6a94c; /* Золотой цвет цены */
+    margin-right: 20px; /* Отступ справа от цены */
+    font-weight: bold; /* Жирный шрифт */
+}
+
+/* Кнопка заказа */
+.order-button {
+    padding: 20px 120px; /* Внутренние отступы */
+    background-color: #9c1520; /* Красный цвет кнопки */
+    color: #ffffff; /* Белый цвет текста */
+    border: none; /* Без границы */
+    border-radius: 30px; /* Скругленные углы */
+    font-size: 1.2rem; /* Размер шрифта */
+    cursor: pointer; /* Изменяем курсор */
+    transition: all 0.3s ease; /* Плавные переходы */
+}
+
+.order-button:hover {
+    background-color: #801019; /* Темнее при наведении */
+    transform: scale(1.05); /* Небольшое увеличение */
+    box-shadow: 0px 0px 10px rgba(156, 21, 32, 0.7); /* Подсветка */
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+    .tariff-item {
+        flex-direction: column; /* Изображение и текст друг за другом */
+        text-align: center; /* Текст по центру */
+        align-items: center; /* Центрируем все элементы */
+        padding: 15px; /* Уменьшаем внутренние отступы */
+    }
+
+    /* Изображение вверху и по центру */
+    .tariff-image {
+        margin-bottom: 20px; /* Отступ между изображением и текстом */
+        width: 100%; /* Изображение занимает всю доступную ширину */
+        max-width: 300px; /* Максимальная ширина изображения */
+        order: 1; /* Размещаем изображение выше текста */
+    }
+
+    .tariff-image img {
+        width: 100%; /* Изображение растягивается на всю ширину контейнера */
+        height: auto; /* Сохраняем пропорции */
+        object-fit: contain; /* Обрезаем при необходимости */
+        border-radius: 10px; /* Скругленные углы */
+    }
+
+    /* Текстовая часть ниже изображения */
+    .tariff-content {
+        max-width: 100%; /* Текст занимает всю доступную ширину */
+        order: 2; /* Размещаем текст ниже изображения */
+        padding: 0 15px; /* Добавляем горизонтальные отступы для текста */
+    }
+
+    /* Блок с ценой и кнопкой */
+    .tariff-price {
+        flex-direction: column; /* Цена и кнопка друг за другом */
+        align-items: center; /* Центрируем элементы */
+        margin-top: 20px; /* Отступ над ценой и кнопкой */
+    }
+
+    /* Кнопка заказа */
+    .order-button {
+        padding: 20px 120px; /* Внутренние отступы */
+        background-color: #9c1520; /* Красный цвет кнопки */
+        color: #ffffff; /* Белый цвет текста */
+        border: none; /* Без границы */
+        border-radius: 30px; /* Скругленные углы */
+        font-size: 1.2rem; /* Размер шрифта */
+        cursor: pointer; /* Изменяем курсор */
+        transition: all 0.3s ease; /* Плавные переходы */
+    }
+}
+
+
+
+
+
+
+/* Общий стиль секции */
+#контакты h2 {
+    text-align: center; /* Заголовок по центру */
+    margin-bottom: 40px; /* Отступ под заголовком */
+    font-size: 2rem; /* Размер шрифта заголовка */
+    color: #ffffff; /* Золотой цвет заголовка */
+}
+
+/* Контейнер для двух блоков */
+.contact-container {
+    display: flex; /* Размещаем блоки рядом */
+    gap: 20px; /* Промежуток между блоками */
+    max-width: 1200px; /* Максимальная ширина контейнера */
+    margin: 0 auto; /* Центрируем контейнер */
+}
+
+/* Стиль для каждого блока */
+.cta-block,
+.contact-block {
+    background-color: rgba(0, 0, 0, 0.473); /* Полупрозрачный фон */
+    border: 2px solid #e6a94c; /* Золотистая обводка */
+    border-radius: 10px; /* Скругленные углы */
+    padding: 20px; /* Внутренние отступы */
+    flex: 1; /* Блоки занимают равное пространство */
+    min-width: 300px; /* Минимальная ширина блоков */
+}
+
+/* Блок с формой CTA */
+.cta-block {
+    text-align: left; /* Текст выравнивается по левому краю */
+}
+
+.cta-block h3 {
+    font-size: 1.5rem; /* Размер заголовка */
+    color: #e6a94c; /* Золотой цвет заголовка */
+    margin-bottom: 15px; /* Отступ под заголовком */
+}
+
+.cta-block p {
+    font-size: 1rem; /* Размер шрифта */
+    color: #ffffff; /* Белый цвет текста */
+    margin-bottom: 20px; /* Отступ под текстом */
+}
+
+/* Форма CTA */
+.cta-form {
+    display: flex;
+    flex-direction: column; /* Элементы формы вертикально */
+    gap: 15px; /* Промежуток между элементами */
+}
+
+.cta-form label {
+    font-size: 1rem; /* Размер шрифта метки */
+    color: #ffffff; /* Белый цвет текста */
+}
+
+.cta-form input,
+.cta-form textarea {
+    padding: 10px; /* Внутренние отступы */
+    border: none; /* Без границы */
+    border-radius: 5px; /* Скругленные углы */
+    background-color: rgba(255, 255, 255, 0.2); /* Полупрозрачный фон */
+    color: #ffffff; /* Белый цвет текста */
+    font-size: 1rem; /* Размер шрифта */
+}
+
+.cta-form textarea {
+    resize: none; /* Запрещаем изменение размера textarea */
+    height: 80px; /* Высота textarea */
+}
+
+/* Кнопка отправки */
+.submit-button {
+    padding: 15px 30px; /* Внутренние отступы */
+    background-color: #9c1520; /* Красный цвет кнопки */
+    color: #ffffff; /* Белый цвет текста */
+    border: none; /* Без границы */
+    border-radius: 30px; /* Скругленные углы */
+    font-size: 1rem; /* Размер шрифта */
+    cursor: pointer; /* Изменяем курсор */
+    transition: all 0.3s ease; /* Плавные переходы */
+}
+
+.submit-button:hover {
+    background-color: #801019; /* Темнее при наведении */
+    transform: scale(1.05); /* Небольшое увеличение */
+    box-shadow: 0px 0px 10px rgba(156, 21, 32, 0.7); /* Подсветка */
+}
+
+/* Блок с контактами */
+.contact-block {
+    text-align: center; /* Текст по центру */
+    
+}
+
+.contact-block h3 {
+    font-size: 1.5rem; /* Размер заголовка */
+    color: #e6a94c; /* Золотой цвет заголовка */
+    margin-bottom: 15px; /* Отступ под заголовком */
+}
+
+/* Список контактов */
+.contact-list {
+    list-style: none; /* Убираем маркеры списка */
+    padding: 0; /* Убираем внутренние отступы */
+    margin: 0; /* Убираем внешние отступы */
+}
+
+.contact-list li {
+    font-size: 1.2rem; /* Размер шрифта пунктов */
+    color: #ffffff; /* Белый цвет текста */
+    margin-bottom: 10px; /* Отступ между пунктами */
+}
+
+.contact-list a {
+    color: #e6a94c; /* Золотой цвет ссылок */
+    text-decoration: none; /* Убираем подчеркивание */
+    transition: color 0.3s ease; /* Плавные переходы */
+}
+
+.contact-list a:hover {
+    color: #ffffff; /* Белый цвет при наведении */
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+    .contact-container {
+        flex-direction: column; /* Блоки друг за другом */
+    }
+
+    .cta-block,
+    .contact-block {
+        flex: none; /* Блоки не растягиваются */
+        width: 100%; /* Блоки занимают всю доступную ширину */
+        max-width: none; /* Убираем ограничение ширины */
+    }
+}
+
+
+/* Блок сообщений */
+.form-message {
+    margin-top: 15px;
+    font-size: 1rem;
+    text-align: center;
+}
+
+
+/* Стиль для кнопки "Позвоните нам" */
+.call-now-button {
+    border: 2px solid #e6a94c; /* Золотой контур */
+    background-color: transparent; /* Прозрачный фон */
+    color: #e6a94c; /* Золотой цвет текста */
+    font-size: 1.2rem; /* Размер шрифта */
+    padding: 5px 15px; /* Внутренние отступы */
+    border-radius: 30px; /* Скругленные углы */
+    cursor: pointer; /* Изменяем курсор при наведении */
+    transition: all 0.3s ease; /* Плавные переходы */
+    font-family: 'Anticva', serif; /* Шрифт (если используется на сайте) */
+}
+
+/* Ховер эффект */
+.call-now-button:hover {
+    background-color: rgba(230, 169, 76, 0.1); /* Легкий полупрозрачный фон при наведении */
+    transform: scale(1.05); /* Небольшое увеличение размера */
+    box-shadow: 0px 0px 10px rgba(230, 169, 76, 0.5); /* Добавляем тень */
+}
+
+
+.contact-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column; /* Вертикальное расположение */
+    align-items: center;/* Выравнивание по левому краю */
+    gap: 15px; /* Расстояние между элементами */
+}
+
+.contact-list li {
+    display: flex;
+    align-items: center;
+}
+
+.contact-list li strong {
+    margin-right: 5px;
+}
+
+.contact-list a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.social-icon {
+    width: 150px; /* Увеличиваем размер иконки */
+    height: 150px;
+    transition: transform 0.3s ease; /* Плавное увеличение при наведении */
+}
+
+.social-icon:hover {
+    transform: scale(1.1); /* Увеличение иконки при наведении */
+}
