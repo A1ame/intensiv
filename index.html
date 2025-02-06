@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Интенсив Сары Мегре</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Стили Swiper -->
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+<!-- Скрипт Swiper -->
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+</head>
+<body>
+    <!-- Навигация -->
+    <div class="navbar-container">
+        <a href="#" class="logo">АГЕНТСТВО МЕГРЕ</a>
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        <nav class="nav-links" id="navLinks">
+            <ul>
+                <li><a href="#услуги">Услуги</a></li>
+                <li><a href="#результат">Результат</a></li>
+                <li><a href="#кейсы">Кейсы</a></li>
+                <li><a href="#тарифы">Тарифы</a></li>
+                <li><a href="#контакты">Контакты</a></li>
+            </ul>
+            <p>Телефон: +123 456 7890</p>
+            <button class="call-now-button" onclick="callNow()">Позвоните нам</button>
+        </nav>
+    </div>
+
+    <!-- Первый экран -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>ИНТЕНСИВ</h1>
+                <h1>САРЫ МЕГРЕ</h1>
+                <p>От селлера с годовым оборотом более 600 млн руб.</p>
+                <button class="cta-button">Бесплатный аудит вашего магазина</button>
+            </div>
+            <div class="hero-image">
+                <picture>
+                    <source srcset="941.png" media="(max-width: 768px)">
+                    <source srcset="941.png" media="(min-width: 769px)">
+                    <img src="941.png" alt="Сара Мегре - основатель">
+                </picture>
+            </div>
+        </div>
+    </section>
+    <div class="hero-border"></div> 
+
+    <!-- Другие блоки -->
+    <!-- Блок Услуги -->
+    <div class="main-container">
+<section id="услуги"  class="section services-container">
+    <h2>Наши услуги</h2>
+    <div class="services-container">
+        <!-- Блок 1 -->
+        <div class="service-item">
+            <div class="icon"><img src="uslugi1.png" alt="Аналитика"></div>
+            <div class="content">
+                <h3>Глубокая аналитика</h3>
+                <p>Подбор пяти товаров на ближайшие 2 сезона</p>
+            </div>
+        </div>
+        
+        <!-- Блок 2 -->
+        <div class="service-item">
+            <div class="icon"><img src="uslugi2.png" alt="Тестирование"></div>
+            <div class="content">
+                <h3>Тестирование менеджеров</h3>
+                <p>В 2 этапа</p>
+            </div>
+        </div>
+        
+        <!-- Блок 3 -->
+        <div class="service-item">
+            <div class="icon"><img src="uslugi3.png" alt="Алгоритм"></div>
+            <div class="content">
+                <h3>Алгоритм вывода новинок</h3>
+                <p>В топ категории "одежда"</p>
+            </div>
+        </div>
+        
+        <!-- Блок 4 -->
+        <div class="service-item">
+            <div class="icon"><img src="uslugi4.png" alt="Поддержка"></div>
+            <div class="content">
+                <h3>Поддержка и сопровождение</h3>
+                <p>Непрерывная поддержка на каждом этапе роста</p>
+            </div>
+        </div>
+    </div>
+
+    </div>
+    <section id="маркетплейсы" class="section sponsors-container">
+        <h2>Мы сотрудничаем с маркетплейсами</h2>
+        
+        <!-- Первая строка (4 блока) -->
+        <div class="marketplaces-grid">
+            <div class="marketplace-item"><img src="wildberries-logo.png" alt="Wildberries"></div>
+            <div class="marketplace-item"><img src="ozon-logo.png" alt="Ozon"></div>
+            <div class="marketplace-item"><img src="yandex-market-logo.png" alt="Яндекс Маркет"></div>
+            <div class="marketplace-item"><img src="sbermarket-logo.png" alt="СберМаркет"></div>
+        </div>
+    
+        <!-- Вторая строка (3 блока) -->
+        <div class="marketplaces-grid">
+            <div class="marketplace-item"><img src="lamoda-logo.png" alt="Lamoda"></div>
+            <div class="marketplace-item"><img src="detmir-logo.png" alt="Детский мир"></div>
+            <div class="marketplace-item"><img src="lemanapro-logo.webp" alt="Лемана ПРО"></div>
+        </div>
+    </section>
+</section>
+
+<section id="кому-полезны" class="section">
+    <h2>Кому мы будем полезны</h2>
+    <div class="useful-container">
+        <!-- Блок 1 -->
+        <div class="useful-item">
+            <div class="icon"><img src="tild6261-3834-4437-b033-636336626433__icon1.png" alt="Селлерам"></div>
+            <div class="content">
+                <h3>Селлерам</h3>
+                <p>Которые столкнулись с «нерешаемыми» проблемами, низкими продажами, отсутствием плана действий и понимания как из этого выбраться и наконец выйти на серьезную прибыль.</p>
+            </div>
+        </div>
+        
+        <!-- Блок 2 -->
+        <div class="useful-item">
+            <div class="icon"><img src="tild3363-6637-4838-b264-343062323235__icon2.png" alt="Новичкам"></div>
+            <div class="content">
+                <h3>Новичкам</h3>
+                <p>Которые хотят войти в бизнес на МП сразу с актуальным, маржинальным и высоко-оборачиваемым товаром, сильной командой специалистов и опытным системным руководителем во главе.</p>
+            </div>
+        </div>
+
+        
+        <!-- Блок 3 -->
+        <div class="useful-item">
+            <div class="icon"><img src="tild6266-6130-4463-b935-323137613939__icon3.png" alt="Селлерам"></div>
+            <div class="content">
+                <h3>Селлерам</h3>
+                <p>Которые выгорели или просто по-человечески устали и хотят, чтобы их бизнес наконец работал автономно и не отнимал кучу личного времени.</p>
+            </div>
+        </div>
+        
+        <!-- Блок 4 -->
+        <div class="useful-item">
+            <div class="icon"><img src="tild3466-3236-4566-a232-663862363665__icon4.png" alt="Производителям товаров"></div>
+            <div class="content">
+                <h3>Производителям товаров</h3>
+                <p>Желающим открыть и развить новый сильный канал продаж для их продукта.</p>
+            </div>
+        </div>
+        
+        <!-- Блок 5 -->
+        <div class="useful-item">
+            <div class="icon"><img src="tild3135-3765-4639-a339-363231336465__icon5.png" alt="Собственникам оффлайн-брендов"></div>
+            <div class="content">
+                <h3>Собственникам оффлайн-брендов и интернет-магазинов</h3>
+                <p>Которые хотят увеличить продажи и привести новых клиентов.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="результат" class="section">
+    <h2>В результате нашей работы вы получите:</h2>
+    <div class="result-list">
+        <!-- Пункт 1 -->
+        <div class="result-item"><span>Персональное решение основных трудностей на МП</span></div>
+        
+        <!-- Пункт 2 -->
+        <div class="result-item"><span>Подключение на 7 дней в сервис аналитики Маркет Гуру</span></div>
+        
+        <!-- Пункт 3 -->
+        <div class="result-item"><span>Шаблоны документов и таблиц</span></div>
+        
+        <!-- Пункт 4 -->
+        <div class="result-item"><span>Точное понимание сильных и слабых сторон вашего бизнеса</span></div>
+        
+        <!-- Пункт 5 -->
+        <div class="result-item"><span>Контакт поставщика с нужным товаром</span></div>
+        
+        <!-- Пункт 6 -->
+        <div class="result-item"><span>Усиление действующего менеджера или подбор нового специалиста, который соответствует всем нужным качествам и навыкам</span></div>
+    </div>
+</section>
+
+
+<section id="факты" class="section">
+    <h2>Факты о нас</h2>
+    <div class="facts-container"> <!-- Изменил класс на facts-container -->
+        <!-- Пункт 1 -->
+        <div class="facts-item"><span>Оборот наших клиентов за первый год работы – более 400+ млн. руб.</span></div>
+        
+        <!-- Пункт 2 -->
+        <div class="facts-item"><span>Оборот в сумме с собственным брендом – более 1 млрд. руб.</span></div>
+        
+        <!-- Пункт 3 -->
+        <div class="facts-item"><span>Несколько крупных проектов вместо десятков мелких, держим фокус на качестве</span></div>
+        
+        <!-- Пункт 4 -->
+        <div class="facts-item"><span>Со-основатель и руководитель агентства – Сара Мегре, действующий селлер, входит в 1% поставщиков по величине оборота на WB. Является участником рабочих групп нескольких крупнейших сервисов аналитики, в числе первых тестирует их новейшие инструменты</span></div>
+        
+        <!-- Пункт 5 -->
+        <div class="facts-item"><span>Все важнейшие стратегические решения по клиентам в Агентстве принимаются лично Сарой</span></div>
+    </div>
+</section>
+
+
+<section id="кейсы" class="section">
+    <h2>Кейсы и результаты</h2>
+    <div class="carousel-wrapper">
+        <!-- Стрелки навигации -->
+        <label for="prev" class="left-arrow custom-arrow">←</label>
+        <label for="next" class="right-arrow custom-arrow">→</label>
+
+        <!-- Слайдер -->
+        <div class="carousel">
+            <ul>
+                <li>
+                    <img src="tild6135-6265-4839-b565-623335313462__1_1.png" alt="Кейс №1">
+                   
+                </li>
+                <li>
+                    <img src="tild3934-3831-4761-b037-623338333035__2_1.png" alt="Кейс №2">
+                    
+                </li>
+                <li>
+                    <img src="tild3466-3666-4632-a534-626561333735__3_1.png" alt="Кейс №3">
+                    
+                </li>
+                <li>
+                    <img src="tild6531-6562-4537-b735-346136376237__4_1.png" alt="Кейс №3">
+                    
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+
+
+<section id="тарифы" class="section">
+    <h2>Тарифы</h2>
+    <div class="tariff-container">
+        <!-- Тариф "Индивидуальный с Сарой" -->
+        <div class="tariff-item">
+            <div class="tariff-image">
+                <img src="941.png" alt="Индивидуальный с Сарой">
+            </div>
+            <div class="tariff-content">
+                <h3>Индивидуальный с Сарой</h3>
+                <ul class="tariff-list">
+                    <li>Проверка домашних заданий с пояснениями</li>
+                    <li>Куратор-помощник</li>
+                    <li>Доступ к записям интенсива</li>
+                    <li>Подключение на 7 дней в сервис аналитики Маркет Гуру + скидка 20% на любой тариф</li>
+                    <li>Шаблоны документов и таблиц для работы</li>
+                    <li>Индивидуальная работа с Сарой</li>
+                </ul>
+                <div class="tariff-price">
+                    <span>150 000 ₽</span>
+                    <button class="order-button">Заказать</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section id="контакты" class="section">
+    <h2>Свяжитесь с нами</h2>
+    <div class="contact-container">
+        <!-- Блок с формой CTA -->
+        <div class="cta-block">
+            <h3>Остались вопросы? Задайте их нам и получите ответ</h3>
+            <p>А также бесплатный аудит вашего магазина или консультацию по его запуску</p>
+            <form class="cta-form" id="cta-form">
+                <label for="name">Имя:</label>
+                <input type="text" id="name" name="name" required />
+            
+                <label for="phone">Телефон:</label>
+                <input type="tel" id="phone" name="phone" required />
+            
+                <label for="link">Ссылка на магазин (если есть):</label>
+                <input type="url" id="link" name="link" />
+            
+                <label for="comment">Комментарий (по желанию):</label>
+                <textarea id="comment" name="comment"></textarea>
+            
+                <button type="submit" class="submit-button">Отправить</button>
+                <div class="form-message"></div> <!-- Для вывода сообщений -->
+            </form>
+        </div>
+
+        <!-- Блок с контактами -->
+        <div class="contact-block">
+            <h3>Свяжитесь с нами удобным способом:</h3>
+            <ul class="contact-list">
+                <li><strong>Тел:</strong> 8(936) 777-97-85</li>
+                <li>
+                    <a href="https://wa.me/79367779785" target="_blank">
+                        <img src="vk.png" alt="WhatsApp" class="social-icon">
+                    </a>
+                </li>
+                <li>
+                    <a href="https://t.me/USERNAME" target="_blank">
+                        <img src="telegram.png" alt="Telegram" class="social-icon">
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+ 
+
+    <!-- Футер -->
+    <footer>
+        <div class="footer-content">
+       
+            <div class="footer-sections">
+                <div class="footer-section">
+                    <h3>Правовая информация</h3>
+                    <ul>
+                        <li><a href="#">Политика конфиденциальности</a></li>
+                        <li><a href="#">Условия использования</a></li>
+                        <li><a href="#">Юридическая информация</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Контакты</h3>
+                    <ul>
+                        <li><a href="mailto:info@example.com">ooomegre@yandex.ru</a></li>
+                        <li><a href="tel:+71234567890">+7 (123) 456-78-90</a></li>
+                        <li>Адрес: г. Москва, вн.тер.г. Муниципиальный округ Ростокино, ул Докукина, д. 12</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Навигация</h3>
+                    <ul>
+                        <li><a href="#услуги">Услуги</a></li>
+                <li><a href="#результат">Результат</a></li>
+                <li><a href="#кейсы">Кейсы</a></li>
+                <li><a href="#тарифы">Тарифы</a></li>
+                <li><a href="#контакты">Контакты</a></li>
+                    </ul>
+                </div>
+            </div>
+            <p>&copy; 2025 Интенсив Сара Мегре. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+ 
+</body>
+</html>
